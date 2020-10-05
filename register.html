@@ -1,0 +1,121 @@
+<!doctype html>
+<html lang="en">
+
+<head>
+  <title>Title</title>
+  <!-- Required meta tags -->
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <link rel="stylesheet" href="css/bootstrap.min.css">
+  <link rel="stylesheet" href="css/style.css">
+  <!-- Bootstrap CSS -->
+  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+    integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+</head>
+
+<body>
+  <div id="intro" class="view">
+    <div class="full-bg-img">
+      <br><br><br><br>
+      <section class="container-fluid">
+        <section class="row justify-content-center">
+          <section class="col-12 col-sm-8 col-md-4">
+            <form class="form-container bg-dark text-light">
+              <h2 class="font-weight-bold">Sign Up</h2>
+              <div class="form-group font-weight-bold">
+                Username
+                <input type="text" class="form-control" placeholder="*Username" value="" />
+              </div>
+              <div class="form-group font-weight-bold">
+                Email
+                <input type="text" id="email" class="form-control" placeholder="*Email" value="" />
+              </div>
+              <div class="text-center">
+                <span class="term emailValidity"></span>
+              </div>
+              <div class="form-group font-weight-bold">
+                Password
+                <input type="password" id="pass" class="form-control" placeholder="*Password" value="" />
+              </div>
+              <div class="form-group font-weight-bold">
+                Confirm Password
+                <input type="password" id="cPass" class="form-control" placeholder="*Confirm Password" value="" />
+              </div>
+              <div class="text-center">
+                <span class="term passConfirmation"></span>
+              </div>
+              <div class="form-group font-weight-bold">
+                <input type="submit" class="btn btn-block btn-login btn-primary float-right" value="Submit" />
+              </div>
+              <div class="form-group">
+                <a href="index.html" class="FPassword">
+                  Already have an Account?
+                </a>
+              </div>
+            </form>
+          </section>
+        </section>
+      </section>
+
+    </div>
+  </div>
+
+
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+</body>
+
+
+<script type="text/javascript">
+
+  $(function () {
+    $('#email').keyup(function () {
+      if (emailValidation()) {
+        $('#email').css("border", "2px solid blue");
+        $('.emailValidity').html("<p class='text-warning'>Email Confirmed</p>");
+      } else {
+        $('#email').css("border", "2px solid red");
+        $('.emailValidity').html("<p class='text-danger'>Invalid email!</p>");
+        return false;
+      }
+    });
+  });
+
+  function emailValidation() {
+    var email = $("#email").val();
+    var reg = /^\w+([-+.']\w+)*@\w+([-.]\w+)*\.\w+([-.]\w+)*$/
+    if (reg.test(email)) {
+      return true;
+    } else {
+      return false;
+    }
+  }
+
+  $(function () {
+    $('#cPass').keyup(function () {
+      var password = $("#pass").val();
+      var repassword = $("#cPass").val();
+
+      if (password != repassword) {
+        $('#cPass').css("border");
+        $('.passConfirmation').html("<p class='text-danger'>Incorrect Password\!</p>");
+        return false;
+      } else
+        $('#cPass').css("border");
+      $('.passConfirmation').html("<p class='text-warning'>Password Matched\!</p>");
+      return true;
+    });
+  });
+
+</script>
+
+</html>
